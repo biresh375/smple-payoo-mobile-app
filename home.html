@@ -4,8 +4,127 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>home</title>
+  <!-- desiUi cdn -->
+     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+     <!-- css main file -->
+         <link rel="stylesheet" href="style/style.css">
+    <!-- cdnlink -->
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+     <!-- fontawsome cdn -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
 </head>
-<body>
-    <h1> This is home page</h1>
+<body class="bg-[#f4f5f7] h-[100%] outfit ">
+    <main class="max-w-[450px] mx-auto  ">
+       <div class="p-5 bg-white rounded-b-lg">
+         <nav class="flex justify-between items-center bg-white">
+            <div class="flex items-center">
+                <div class="w-[50px] h-[50px]">
+                    <img  src="assets/Group.png" alt="">
+                </div>
+                <div>
+                 <h2 class="text-[#080808e5] font-[800] text-xl">$<span>45000</span></h2>
+                <p class="text-[#0808087f]">Available Balance</p></div>
+            </div>
+            <div>
+                <button id="logOutButton" class="btn py-6 text-[#0808087f] rounded-xl text-[18px]"> <i class="mr-1.5 fa-solid fa-arrow-right-from-bracket rotate-180"> </i> Log Out</button>
+            </div>
+        </nav>
+        <div class="mt-12 mb-6">
+            <h1 class="font-[800] text-2xl mb-3">🔥 Welcome to Payooo!</h1>
+            <P class="text-[#0808087f]">Enjoy easy and convenient financial services with us. Cashout charge is low and </P>
+        </div>
+        <!-- card container -->
+         <div class="grid grid-cols-3 gap-4  ">
+            <div class="px-auto py-4 border-2 border-[#08080819] rounded-xl text-center">
+                <img class="mx-auto" src="assets/wallet1.png" alt="">
+                <p>Add Money</p>
+            </div>
+            <div class="px-auto py-4 border-2 border-[#08080819] rounded-xl text-center">
+                <img class="mx-auto" src="assets/wallet1.png" alt="">
+                <p>CashOut</p>
+            </div>
+            <div class="px-auto py-4 border-2 border-[#08080819] rounded-xl text-center">
+                <img class="mx-auto" src="assets/wallet1.png" alt="">
+                <p>Transfer Money</p>
+            </div>
+            <div class="px-auto py-4 border-2 border-[#08080819] rounded-xl text-center">
+                <img class="mx-auto" src="assets/wallet1.png" alt="">
+                <p>Get Bonus</p>
+            </div>
+            <div class="px-auto py-4 border-2 border-[#08080819] rounded-xl text-center">
+                <img class="mx-auto" src="assets/wallet1.png" alt="">
+                <p>Pay Bill</p>
+            </div>
+            <div class="px-auto py-4 border-2 border-[#08080819] rounded-xl text-center">
+                <img class="mx-auto" src="assets/wallet1.png" alt="">
+                <p>Transactions</p>
+            </div>
+
+         </div>
+        </div>
+
+        <!-- history -->
+         <div class=" p-5">
+            <div class="flex justify-between items-center">
+                <h3 class="text-xl font-[600]">Latest Payment</h3>
+                <a href="">View All</a>
+            </div>
+            <div class="flex justify-between items-center mt-3 bg-white py-[16px] px-3 rounded-xl">
+                <div class="flex  justify-center items-center ">
+                    <div class="w-[50px] h-[50px] bg-[#f4f5f7] m-3 p-2 rounded-full"><img class="w-full" src="assets/wallet1.png" alt=""></div>
+                    <div>
+                        <h3 class="font-semibold text-xl text-[#080808b2]">Electricity Bill</h3>
+                        <p class="text-[#080808b2]">Today 01:44 AM</p>
+                    </div>
+                </div>
+                <div>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+            </div>
+            <div class="flex justify-between items-center mt-3 bg-white py-[16px] px-3 rounded-xl">
+                <div class="flex  justify-center items-center ">
+                    <div class="w-[50px] h-[50px] bg-[#f4f5f7] m-3 p-2 rounded-full"><img class="w-full" src="assets/wallet1.png" alt=""></div>
+                    <div>
+                        <h3 class="font-semibold text-xl text-[#080808b2]">Bank Deposit</h3>
+                        <p class="text-[#080808b2]">Today 01:44 AM</p>
+                    </div>
+                </div>
+                <div>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+            </div>
+            <div class="flex justify-between items-center mt-3 bg-white py-[16px] px-3 rounded-xl">
+                <div class="flex  justify-center items-center ">
+                    <div class="w-[50px] h-[50px] bg-[#f4f5f7] m-3 p-2 rounded-full"><img class="w-full" src="assets/wallet1.png" alt=""></div>
+                    <div>
+                        <h3 class="font-semibold text-xl text-[#080808b2]">Mobile Recharge</h3>
+                        <p class="text-[#080808b2]">Today 01:44 AM</p>
+                    </div>
+                </div>
+                <div>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+            </div>
+            <div class="flex justify-between items-center mt-3 bg-white py-[16px] px-3 rounded-xl">
+                <div class="flex  justify-center items-center ">
+                    <div class="w-[50px] h-[50px] bg-[#f4f5f7] m-3 p-2 rounded-full"><img class="w-full" src="assets/wallet1.png" alt=""></div>
+                    <div>
+                        <h3 class="font-semibold text-xl text-[#080808b2]">Gas Bill</h3>
+                        <p class="text-[#080808b2]">Today 01:44 AM</p>
+                    </div>
+                </div>
+                <div>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+            </div>
+         </div>
+
+    </main>
+
+
+    <script src="script/home.js"></script>
 </body>
 </html>
