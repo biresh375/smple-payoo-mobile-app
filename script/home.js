@@ -69,8 +69,9 @@ document.getElementById('transactions').addEventListener('click',function(){
 
 
 
-
-
+// AddMOney feature added
+const pin = '1234';
+const validccountNumber = "12345678901";
 document.getElementById('addMoneyButton').addEventListener('click',function(e){
     e.preventDefault();
     const inputAmount= parseInt(document.getElementById('addAmount').value);
@@ -78,23 +79,22 @@ document.getElementById('addMoneyButton').addEventListener('click',function(e){
     const totalBalance =Number(document.getElementById('totalBalance').innerText)
 
     const accountNumber = document.getElementById('bankAccount').value;
-    console.log(accountNumber);
+
     const unputPin = document.getElementById('AddMoneyPin').value;
     // console.log(unputPin);
 
-    const pin = '1234';
 
     if(isNaN(inputAmount)){
         alert("invalid credential");
         return;
     }
-    if(accountNumber.length !== 11){
+    if(accountNumber.length !== 11 && accountNumber === validccountNumber){
         alert("Enter valid account Number")
         return;
     }
     if(unputPin !==pin){
         alert('enter valid pin')
-        return
+        return;
     }
    
     const addMoneyTotalAmount = totalBalance + inputAmount;
@@ -104,3 +104,45 @@ document.getElementById('addMoneyButton').addEventListener('click',function(e){
   document.getElementById('addAmount').value= '';
   document.getElementById('AddMoneyPin').value='';
 })
+
+
+
+
+// cashouat feature added
+document.getElementById('cashOutButton').addEventListener("click",function(e){
+    e.preventDefault();
+ const cashoutAmount = Number(document.getElementById('cashoutAmount').value);
+ const cashOutPin = document.getElementById('cashOutPin').value;
+ const agentNumber = document.getElementById('agentNumber').value;
+ const totalBalance = Number(document.getElementById('totalBalance').innerText);
+ 
+if(isNaN(cashoutAmount)){
+        alert("invalid credential");
+        return;
+    }
+    if(agentNumber.length !== 11){
+        alert("Enter valid account Number")
+        return;
+    }
+    if(cashOutPin !==pin){
+        alert('enter valid pin')
+        return;
+    }
+    if(totalBalance < cashoutAmount){
+        alert('your balance is low');
+        return;
+    }
+ 
+    const cashoutTotalAmount = totalBalance - cashoutAmount;
+    document.getElementById('totalBalance').innerHTML = cashoutTotalAmount;
+
+
+
+ document.getElementById('cashoutAmount').value="";
+  document.getElementById('cashOutPin').value='';
+  document.getElementById('agentNumber').value='';
+
+});
+
+
+

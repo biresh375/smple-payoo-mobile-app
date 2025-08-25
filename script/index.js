@@ -7,7 +7,7 @@ document.getElementById('loginButton').addEventListener('click',function(e){
      const convertINputPin = parseInt(inputPin);
 
     
-    const Number = 1234567890;
+    const Number = 12345678901;
     const pin = 1234;
     if(Number===convertINputNumber && pin===convertINputPin){
         window.location.href= 'home.html';
