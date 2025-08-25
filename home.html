@@ -36,29 +36,35 @@
             <h1 class="font-[800] text-2xl mb-3">🔥 Welcome to Payooo!</h1>
             <P class="text-[#0808087f]">Enjoy easy and convenient financial services with us. Cashout charge is low and </P>
         </div>
-        <!-- card container -->
+        <!-- button section container -->
          <div class="grid grid-cols-3 gap-4  ">
-            <div id="addMoney" class="px-auto py-4 border-2 border-[#08080819] rounded-xl text-center">
+            <!-- add money -->
+            <div id="addMoney" class="active px-auto py-4 border-2 border-[#08080819] rounded-xl text-center">
                 <img class="mx-auto" src="assets/wallet1.png" alt="">
                 <p>Add Money</p>
             </div>
-            <div id="cashOut" class="px-auto py-4 border-2 border-[#08080819] rounded-xl text-center">
+            <!-- cashout -->
+            <div id="cashOut" class="active  px-auto py-4 border-2 border-[#08080819]  rounded-xl text-center">
                 <img class="mx-auto" src="assets/wallet1.png" alt="">
                 <p>CashOut</p>
             </div>
-            <div id="transferMoney" class="px-auto py-4 border-2 border-[#08080819] rounded-xl text-center">
+            <!-- transfer Money -->
+            <div id="transferMoney" class="active px-auto py-4 border-2 border-[#08080819] rounded-xl text-center">
                 <img class="mx-auto" src="assets/wallet1.png" alt="">
                 <p>Transfer Money</p>
             </div>
-            <div id="getBonus" class="px-auto py-4 border-2 border-[#08080819] rounded-xl text-center">
+            <!-- get Bonus -->
+            <div id="getBonus" class="active px-auto py-4 border-2 border-[#08080819] rounded-xl text-center">
                 <img class="mx-auto" src="assets/wallet1.png" alt="">
                 <p>Get Bonus</p>
             </div>
-            <div id="payBill" class="px-auto py-4 border-2 border-[#08080819] rounded-xl text-center">
+            <!-- pay bil -->
+            <div id="payBill" class="active px-auto py-4 border-2 border-[#08080819] rounded-xl text-center">
                 <img class="mx-auto" src="assets/wallet1.png" alt="">
                 <p>Pay Bill</p>
             </div>
-            <div id="transactions" class="px-auto py-4 border-2 border-[#08080819] rounded-xl text-center">
+            <!-- Transaction -->
+            <div id="transactions" class="active px-auto py-4 border-2 border-[#08080819] rounded-xl text-center">
                 <img class="mx-auto" src="assets/wallet1.png" alt="">
                 <p>Transactions</p>
             </div>
@@ -67,7 +73,7 @@
         </div>
 
         <!-- Latest Payment -->
-         <div id="latestPaymentSection" class=" p-5">
+         <div id="latestPaymentSection" class="form p-5">
             <div class="flex justify-between items-center">
                 <h3 class="text-xl font-[600]">Latest Payment</h3>
                 <a href="">View All</a>
@@ -122,7 +128,7 @@
             </div>
          </div>
          <!-- Add Money section -->
-         <div id="addMoneySection" class="hidden max-w-[450px]">
+         <div id="addMoneySection" class="form hidden max-w-[450px]">
             <h2 class="font-semibold text-xl ml-5 mt-8">Add Money</h2>
             <form action="" class="w-[450px] rounded-3xl bg-[#ffffff] p-8 ">
                 <label class="font-medium" for="">Select A Bank</label>
@@ -152,7 +158,7 @@
 
          </div>
          <!-- CashOut section -->
-         <div id="cashOutSection" class=" hidden  max-w-[450px]">
+         <div id="cashOutSection" class="form hidden  max-w-[450px]">
             <h2 class="font-semibold text-xl ml-5 mt-8">Cash Out</h2>
             <form action="" class="w-[450px] rounded-3xl bg-[#ffffff] p-8 ">
                 <label class="font-medium" for="">Agent Number</label>
@@ -174,28 +180,28 @@
          </div>
 
          <!-- transfar Money -->
-          <div id="transfarMonehSection" class=" hidden  max-w-[450px]">
+          <div id="transfarMonehSection" class="form hidden  max-w-[450px]">
             <h2 class="font-semibold text-xl ml-5 mt-8">Transfer Money</h2>
             <form action="" class="w-[450px] rounded-3xl bg-[#ffffff] p-8 ">
                 <label class="font-medium" for="">User Account Number</label>
-              <input type="text"   placeholder="Enter 11 digit number" class="input bg-[#f4f5f7]  w-full border-0 p-7 rounded-[32px]  mt-3 mb-4 font-medium  " />
+              <input id="transfarNumber" type="text"   placeholder="Enter 11 digit number" class="input bg-[#f4f5f7]  w-full border-0 p-7 rounded-[32px]  mt-3 mb-4 font-medium  " />
              
 <br>
  <label class="font-medium" for=""> Amount</label>
  <br>
-<input type="text"   placeholder="Enter amount to transfer" class="input bg-[#f4f5f7]  w-full border-0 p-7 rounded-[32px]  mt-3 mb-4 font-medium  " />
+<input type="text" id="sentMoneyAmount"  placeholder="Enter amount to transfer" class="input bg-[#f4f5f7]  w-full border-0 p-7 rounded-[32px]  mt-3 mb-4 font-medium  " />
 <br>
  <label class="font-medium" for="">Pin Number</label>
  <br>
-<input type="text"  class="   input bg-[#f4f5f7] w-full font-medium border-0 p-7 rounded-[32px] mt-3  mb-4 " placeholder="Enter 4 digit pin number"  />
-<button  class="btn bg-[#0874f2] w-full rounded-4xl font-medium text-white mt-4  p-7">Send Now</button>
+<input id="sentMoneyPin" type="text"  class="   input bg-[#f4f5f7] w-full font-medium border-0 p-7 rounded-[32px] mt-3  mb-4 " placeholder="Enter 4 digit pin number"  />
+<button id="sentMoneyButton" class="btn bg-[#0874f2] w-full rounded-4xl font-medium text-white mt-4  p-7">Send Now</button>
           </form>    
 
 
 
          </div>
          <!-- Get bonus section -->
-           <div id="getBonusSection" class=" hidden  max-w-[450px]">
+           <div id="getBonusSection" class="form hidden  max-w-[450px]">
             <h2 class="font-semibold text-xl ml-5 mt-8">Get Bonus</h2>
             <form action="" class="w-[450px] rounded-3xl bg-[#ffffff] p-8 ">
                 
@@ -210,7 +216,7 @@
          </div>
 
          <!-- pay bil section -->
-          <div id="payBilSection" class=" hidden  max-w-[450px]">
+          <div id="payBilSection" class="form hidden  max-w-[450px]">
             <h2 class="font-semibold text-xl ml-5 mt-8">Pay Bill</h2>
             <form action="" class="w-[450px] rounded-3xl bg-[#ffffff] p-8 ">
                 <label class="font-medium" for="">Select To Pay</label>
@@ -240,7 +246,7 @@
          </div>
 
          <!-- Transactions history -->
-           <div id="transactionsHistorySection" class=" hidden  p-5 ">
+           <div id="transactionsHistorySection" class="form hidden  p-5 ">
             <div class="flex justify-between items-center">
                 <h3 class="text-xl font-[600]">Transaction History</h3>
                 <a href="">View All</a>

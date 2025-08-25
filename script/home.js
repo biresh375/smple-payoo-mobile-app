@@ -3,70 +3,92 @@ document.getElementById('logOutButton').addEventListener('click',function(){
         window.location.href='index.html'
     }
 });
-const latestPaymentSection = document.getElementById('latestPaymentSection');
-const addMoneySection = document.getElementById('addMoneySection');
-const cashOutSection = document.getElementById('cashOutSection');
-const transfarMonehSection = document.getElementById('transfarMonehSection');
-const getBonusSection = document.getElementById('getBonusSection');
-const payBilSection = document.getElementById('payBilSection');
-const transactionsHistorySection = document.getElementById('transactionsHistorySection');
+// toggle function
+function toggle (id){
+     const allForm = document.getElementsByClassName('form');
+  for(form of allForm){
+    form.style.display="none"
+  }
+  document.getElementById(id).style.display="block";
+  return;
+}
+// active toggle function
+function activeStyle(id){
+     const allActivebtns= document.getElementsByClassName('active');
+  for( const activebtn of allActivebtns ){
+    activebtn.classList.remove("border-[#0874f2]", "bg-[#0874f20c]","font-bold","text-blue-500")
+    activebtn.classList.add("border-[#08080819]")    
+  };
+  document.getElementById(id).classList.remove("border-[#08080819]")
+  document.getElementById(id).classList.add("border-[#0874f2]","bg-[#0874f20c]","font-bold","text-blue-500");
+  return
+}
 
+
+
+
+
+
+//get value 
+function getValue(id){
+ const idvalue = document.getElementById(id).value;
+    return idvalue;
+}
+// get innertext
+function geetInnertext(id){
+    const text = document.getElementById(id).innerText;
+    return text
+}
+// set innerText
+function setBalance(money){
+    document.getElementById("totalBalance").innerText = money;
+    return
+}
+
+
+
+// remove input value function
+function removeINpurValue(id){
+document.getElementById(id).value ="";
+   return ;
+}
+
+
+
+
+// togglet feature
 document.getElementById('addMoney').addEventListener('click',function(){
-    latestPaymentSection.style.display ='none'
-    addMoneySection.style.display='block'
-    cashOutSection.style.display ='none'
-    transfarMonehSection.style.display ='none'
-    getBonusSection.style.display ='none'
-    payBilSection.style.display ='none'
-    transactionsHistorySection.style.display ='none'
+ toggle("addMoneySection");
+
+
+ activeStyle('addMoney');
+ 
 })
+
 document.getElementById('cashOut').addEventListener('click',function(){
-    latestPaymentSection.style.display ='none'
-    addMoneySection.style.display='none'
-    cashOutSection.style.display ='block'
-    transfarMonehSection.style.display ='none'
-    getBonusSection.style.display ='none'
-    payBilSection.style.display ='none'
-    transactionsHistorySection.style.display ='none'
+ toggle("cashOutSection") 
+  activeStyle('cashOut');
+ 
+
 })
 document.getElementById('transferMoney').addEventListener('click',function(){
-    latestPaymentSection.style.display ='none'
-    addMoneySection.style.display='none'
-    cashOutSection.style.display ='none'
-    transfarMonehSection.style.display ='block'
-    getBonusSection.style.display ='none'
-    payBilSection.style.display ='none'
-    transactionsHistorySection.style.display ='none'
+   toggle("transfarMonehSection")
+  activeStyle('transferMoney');
+ 
 })
 document.getElementById('getBonus').addEventListener('click',function(){
-    latestPaymentSection.style.display ='none'
-    addMoneySection.style.display='none'
-    cashOutSection.style.display ='none'
-    transfarMonehSection.style.display ='none'
-    getBonusSection.style.display ='block'
-    payBilSection.style.display ='none'
-    transactionsHistorySection.style.display ='none'
+ toggle("getBonusSection")
+  activeStyle('getBonus');
 });
 document.getElementById('payBill').addEventListener('click',function(){
-    latestPaymentSection.style.display ='none'
-    addMoneySection.style.display='none'
-    cashOutSection.style.display ='none'
-    transfarMonehSection.style.display ='none'
-    getBonusSection.style.display ='none'
-    payBilSection.style.display = 'block'
-    transactionsHistorySection.style.display ='none'
+  toggle("payBilSection")
+  activeStyle('payBill');
 });
 document.getElementById('transactions').addEventListener('click',function(){
-    latestPaymentSection.style.display ='none'
-    addMoneySection.style.display='none'
-    cashOutSection.style.display ='none'
-    transfarMonehSection.style.display ='none'
-    getBonusSection.style.display ='none'
-    payBilSection.style.display ='none'
-    transactionsHistorySection.style.display ='block'
-});
+   toggle("transactionsHistorySection")
+    activeStyle('transactions');
 
-
+})
 
 
 // AddMOney feature added
@@ -74,13 +96,13 @@ const pin = '1234';
 const validccountNumber = "12345678901";
 document.getElementById('addMoneyButton').addEventListener('click',function(e){
     e.preventDefault();
-    const inputAmount= parseInt(document.getElementById('addAmount').value);
+    const inputAmount= parseInt(getValue("addAmount"));
     
-    const totalBalance =Number(document.getElementById('totalBalance').innerText)
+    const totalBalance =Number(geetInnertext("totalBalance"))
 
-    const accountNumber = document.getElementById('bankAccount').value;
+    const accountNumber =getValue('bankAccount');
 
-    const unputPin = document.getElementById('AddMoneyPin').value;
+    const inputPin = getValue('AddMoneyPin');
     // console.log(unputPin);
 
 
@@ -92,17 +114,21 @@ document.getElementById('addMoneyButton').addEventListener('click',function(e){
         alert("Enter valid account Number")
         return;
     }
-    if(unputPin !==pin){
+    if(inputPin !==pin){
         alert('enter valid pin')
         return;
     }
    
     const addMoneyTotalAmount = totalBalance + inputAmount;
     
-    document.getElementById('totalBalance').innerText= addMoneyTotalAmount;
- document.getElementById('bankAccount').value=''
-  document.getElementById('addAmount').value= '';
-  document.getElementById('AddMoneyPin').value='';
+    setBalance(addMoneyTotalAmount);
+ 
+ removeINpurValue('bankAccount');
+ removeINpurValue('addAmount');
+ removeINpurValue('AddMoneyPin');
+  
+
+ 
 })
 
 
@@ -111,10 +137,11 @@ document.getElementById('addMoneyButton').addEventListener('click',function(e){
 // cashouat feature added
 document.getElementById('cashOutButton').addEventListener("click",function(e){
     e.preventDefault();
- const cashoutAmount = Number(document.getElementById('cashoutAmount').value);
- const cashOutPin = document.getElementById('cashOutPin').value;
- const agentNumber = document.getElementById('agentNumber').value;
- const totalBalance = Number(document.getElementById('totalBalance').innerText);
+ const cashoutAmount = Number(getValue('cashoutAmount'));
+ const cashOutPin = getValue('cashOutPin');
+ 
+ const agentNumber =getValue('agentNumber');
+ const totalBalance = Number(geetInnertext('totalBalance'));
  
 if(isNaN(cashoutAmount)){
         alert("invalid credential");
@@ -134,15 +161,48 @@ if(isNaN(cashoutAmount)){
     }
  
     const cashoutTotalAmount = totalBalance - cashoutAmount;
-    document.getElementById('totalBalance').innerHTML = cashoutTotalAmount;
+     setBalance(cashoutTotalAmount);
 
 
-
- document.getElementById('cashoutAmount').value="";
-  document.getElementById('cashOutPin').value='';
-  document.getElementById('agentNumber').value='';
-
+removeINpurValue('cashoutAmount');
+removeINpurValue('cashOutPin');
+removeINpurValue('agentNumber');
+ 
 });
+// transfar money feature section
+document.getElementById('sentMoneyButton').addEventListener('click',function(e){
+    e.preventDefault();
+    const amount = Number(getValue('sentMoneyAmount'))
+    const avlaibleBalance = Number(geetInnertext('totalBalance'))
+    const sentMoneyPin= getValue('sentMoneyPin');
+    const transfarNumber = getValue('transfarNumber');
+   if(isNaN(amount)){
+        alert("invalid credential");
+        return;
+    }
+    if(transfarNumber.length !== 11){
+        alert("Enter valid account Number")
+        return;
+    }
+    if(sentMoneyPin!==pin){
+        alert('enter valid pin')
+        return;
+    }
+    if(avlaibleBalance < amount){
+        alert('your balance is low');
+        return;
+    }
+
+    const sentMoneyTotalBalance = avlaibleBalance - amount;
+    setBalance(sentMoneyTotalBalance);
+
+
+
+  removeINpurValue('sentMoneyAmount');
+  removeINpurValue('sentMoneyPin');
+  removeINpurValue('transfarNumber');
+    
+})
 
 
 
