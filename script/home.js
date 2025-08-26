@@ -52,7 +52,7 @@ function removeINpurValue(id){
 document.getElementById(id).value ="";
    return ;
 }
-
+const trnsactionData =[];
 
 
 
@@ -87,8 +87,29 @@ document.getElementById('payBill').addEventListener('click',function(){
 document.getElementById('transactions').addEventListener('click',function(){
    toggle("transactionsHistorySection")
     activeStyle('transactions');
+     const historyCard= document.getElementById('historyCard');
+    historyCard.innerText = ""
+    for(const Data of trnsactionData){
+        const div = document.createElement("div")
+        div.innerHTML=`
+         <div class="flex justify-between items-center mt-3 bg-white  py-[16px] px-3 rounded-xl">
+                <div class="flex  justify-center items-center ">
+                    <div class="w-[50px] h-[50px] bg-[#f4f5f7] m-3 p-2 rounded-full"><img class="w-full" src="assets/wallet1.png" alt=""></div>
+                    <div>
+                        <h3 class="font-semibold text-xl text-[#080808b2]">${Data.name}</h3>
+                        <p class="text-[#080808b2]">${Data.Date}</p>
+                    </div>
+                </div>
+        `
+
+        historyCard.appendChild(div);
+    }
 
 })
+
+
+
+
 
 
 // AddMOney feature added
@@ -122,6 +143,18 @@ document.getElementById('addMoneyButton').addEventListener('click',function(e){
     const addMoneyTotalAmount = totalBalance + inputAmount;
     
     setBalance(addMoneyTotalAmount);
+
+
+ const data ={
+    name:"Add Money",
+    Date :new Date().toLocaleTimeString()
+ }
+ trnsactionData.push(data)
+
+;
+
+
+
  
  removeINpurValue('bankAccount');
  removeINpurValue('addAmount');
@@ -130,9 +163,6 @@ document.getElementById('addMoneyButton').addEventListener('click',function(e){
 
  
 })
-
-
-
 
 // cashouat feature added
 document.getElementById('cashOutButton').addEventListener("click",function(e){
@@ -163,6 +193,12 @@ if(isNaN(cashoutAmount)){
     const cashoutTotalAmount = totalBalance - cashoutAmount;
      setBalance(cashoutTotalAmount);
 
+
+      const data ={
+    name:"Cash Out",
+    Date :new Date().toLocaleTimeString()
+ }
+ trnsactionData.push(data)
 
 removeINpurValue('cashoutAmount');
 removeINpurValue('cashOutPin');
@@ -196,7 +232,12 @@ document.getElementById('sentMoneyButton').addEventListener('click',function(e){
     const sentMoneyTotalBalance = avlaibleBalance - amount;
     setBalance(sentMoneyTotalBalance);
 
-
+ const data ={
+    name:"Transfer Money",
+    Date :new Date().toLocaleTimeString()
+ }
+ trnsactionData.push(data);
+ 
 
   removeINpurValue('sentMoneyAmount');
   removeINpurValue('sentMoneyPin');
@@ -204,5 +245,76 @@ document.getElementById('sentMoneyButton').addEventListener('click',function(e){
     
 })
 
+
+
+// get bonus section feater
+const cupon="BIRESH"// bonus $5000
+document.getElementById("getBonusButton").addEventListener('click',function(e){
+    e.preventDefault();
+const inputCupon =  getValue('inputCupon');
+let totalBalance =  Number(geetInnertext('totalBalance'));
+if(inputCupon.includes(cupon)){
+    totalBalance = totalBalance + 5000
+    alert("You Got Bonus 5000$");
+}else{
+    alert('Enter valid cupon code');
+    return;
+}
+
+setBalance(totalBalance);
+
+const data ={
+    name:"Get Bonus",
+    Date :new Date().toLocaleTimeString()
+ }
+ trnsactionData.push(data);
+
+
+
+
+removeINpurValue('inputCupon')
+})
+
+
+
+// pay bil section feater
+document.getElementById('payNowButton').addEventListener('click',function(e){
+    e.preventDefault();
+  const billerAccount = getValue('billerAccount')
+  const payBilAmount = Number(getValue('payBilAmount'))
+  const BilpayPin =getValue('BilpayPin')
+  const avlaibleBalance = Number(geetInnertext('totalBalance'))
+if(isNaN(payBilAmount)){
+        alert("invalid credential");
+        return;
+    }
+    if(billerAccount.length !== 11){
+        alert("Enter valid account Number")
+        return;
+    }
+    if(BilpayPin!==pin){
+        alert('enter valid pin')
+        return;
+    }
+    if(avlaibleBalance < payBilAmount){
+        alert('your balance is low');
+        return;
+    }
+  
+    const newAmount = avlaibleBalance -payBilAmount;
+    setBalance(newAmount);
+
+const data ={
+    name:"Pay Bill",
+    Date :new Date().toLocaleTimeString()
+ }
+ trnsactionData.push(data);
+
+
+ removeINpurValue('billerAccount');
+ removeINpurValue('payBilAmount');
+ removeINpurValue('BilpayPin');
+
+})
 
 
