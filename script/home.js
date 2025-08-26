@@ -127,11 +127,11 @@ document.getElementById('addMoneyButton').addEventListener('click',function(e){
     // console.log(unputPin);
 
 
-    if(isNaN(inputAmount)){
+    if(isNaN(inputAmount)||inputAmount<=0){
         alert("invalid credential");
         return;
     }
-    if(accountNumber.length !== 11 && accountNumber === validccountNumber){
+    if(accountNumber.length !== 11){
         alert("Enter valid account Number")
         return;
     }
@@ -172,7 +172,10 @@ document.getElementById('cashOutButton').addEventListener("click",function(e){
  
  const agentNumber =getValue('agentNumber');
  const totalBalance = Number(geetInnertext('totalBalance'));
- 
+ if(cashoutAmount<99.99){
+    alert('Cash out more then 100')
+    return;
+ }
 if(isNaN(cashoutAmount)){
         alert("invalid credential");
         return;
@@ -212,7 +215,7 @@ document.getElementById('sentMoneyButton').addEventListener('click',function(e){
     const avlaibleBalance = Number(geetInnertext('totalBalance'))
     const sentMoneyPin= getValue('sentMoneyPin');
     const transfarNumber = getValue('transfarNumber');
-   if(isNaN(amount)){
+   if(isNaN(amount) ||amount<=0 ){
         alert("invalid credential");
         return;
     }
@@ -284,7 +287,7 @@ document.getElementById('payNowButton').addEventListener('click',function(e){
   const payBilAmount = Number(getValue('payBilAmount'))
   const BilpayPin =getValue('BilpayPin')
   const avlaibleBalance = Number(geetInnertext('totalBalance'))
-if(isNaN(payBilAmount)){
+if(isNaN(payBilAmount) ||payBilAmount<=0){
         alert("invalid credential");
         return;
     }
